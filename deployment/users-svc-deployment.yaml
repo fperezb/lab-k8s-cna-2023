@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-svc-deployment
+  namespace: chat-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: users-svc
+  template:
+    metadata:
+      labels:
+        app: users-svc
+    spec:
+      containers:
+        - name: users-svc
+          image: TU_USUARIO/labcna-users-svc:v1
+          args:
+            - "node app.js"
+          env:
+            - name: PORT
+              value: "3000"
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: password
+            - name: CONNECTION_URL
+              value: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/postgres"
+            - name: JWT_SECRET
+              value: "changeme"
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always

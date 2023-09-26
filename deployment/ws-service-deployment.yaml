@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ws-service-deployment
+  namespace: chat-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ws-service
+  template:
+    metadata:
+      labels:
+        app: ws-service
+    spec:
+      containers:
+        - name: ws-service
+          image: TU_USUARIO/labcna-ws-service:v1
+          args:
+            - "node index.js"
+          env:
+            - name: PORT
+              value: "3001"
+          ports:
+            - containerPort: 3001
+      restartPolicy: Always
