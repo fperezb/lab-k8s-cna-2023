@@ -164,12 +164,9 @@ Busca la linea que contiene el texto: `image: TU_USUARIO/aplicacion:v1`` en  y r
 
 
 kubectl apply -f deployment
-Para probar debemos habilitar INGRESS del siguiente modo:
 
-minikube addons enable ingress
-Luego ejecuta:
+Para probar debemos habilitar INGRESS.
 
-minikube tunnel
-Con esto habilitas el tunnel para exponer los servicios a través de la dirección IP 127.0.0.1.
 
-Si todo sale bien deberías poder acceder a la aplicación en tu navegador en la dirección http://localhost:8080.
+## Paso 6
+

@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
         - name: ws-service
-          image: TU_USUARIO/labcna-ws-service:v1
+          image: lnds/labcna-ws-server:v0.1.0
           args:
-            - "node index.js"
+            - "node"
+            - "index.js"
           env:
             - name: PORT
               value: "3001"

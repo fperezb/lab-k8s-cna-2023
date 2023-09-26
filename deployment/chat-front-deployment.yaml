@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: chat-front
-          image: TU_USUARIO/labcna-chat-front:v1
+          image: lnds/labcna-chat-frontend:main
           ports:
             - containerPort: 80
       restartPolicy: Always
