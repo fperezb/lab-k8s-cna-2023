@@ -152,3 +152,24 @@ Puedes hacer lo mismo en la linea de comandos del siguiente modo:
 kubectl exec --stdin --tty  postgres-0 -- /bin/bash
 root@posrgres-0:/# psql -U postgres
 ```
+
+
+## Paso 5
+
+Ahora vamos a crear los deployments para nuestras imágenes.
+
+Debes modificar los archivos que terminan en `-deployment.yaml`
+
+Busca la linea que contiene el texto: `image: TU_USUARIO/aplicacion:v1`` en  y reemplaza TU_USUARIO por el nombre de tu usuario en docker-hub.
+
+
+kubectl apply -f deployment
+Para probar debemos habilitar INGRESS del siguiente modo:
+
+minikube addons enable ingress
+Luego ejecuta:
+
+minikube tunnel
+Con esto habilitas el tunnel para exponer los servicios a través de la dirección IP 127.0.0.1.
+
+Si todo sale bien deberías poder acceder a la aplicación en tu navegador en la dirección http://localhost:8080.

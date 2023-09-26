@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: migration-job
-  namespace: movies-app
+  namespace: chat-app
 spec:
   template:
     spec:
