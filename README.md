@@ -26,7 +26,6 @@ Si no las has creado en la tarea 4, puede usar las imágenes que el profesor dis
 Vamos a iniciar minikube
 
 ```
-cd k8s
 minikube start
 ```
 
