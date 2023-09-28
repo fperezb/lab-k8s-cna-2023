@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ws-service
-          image: lnds/labcna-ws-server:v0.3.0
+          image: USUARIO/labcna-ws-server:version
           args:
             - "node"
             - "index.js"

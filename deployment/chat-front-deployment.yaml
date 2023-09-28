@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: chat-front
-          image: USUARIO/labcna-chat-frontend:main
+          image: USUARIO/labcna-chat-frontend:version
           ports:
             - containerPort: 80
               name: http-chat-svc
