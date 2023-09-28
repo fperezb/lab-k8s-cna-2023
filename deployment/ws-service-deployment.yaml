@@ -4,7 +4,7 @@ metadata:
   name: ws-service-deployment
   namespace: chat-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ws-service
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ws-service
-          image: lnds/labcna-ws-server:v0.2.0
+          image: lnds/labcna-ws-server:v0.3.0
           args:
             - "node"
             - "index.js"
