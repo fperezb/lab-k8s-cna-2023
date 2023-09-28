@@ -26,7 +26,7 @@ Si no las has creado en la tarea 4, puede usar las imágenes que el profesor dis
 Vamos a iniciar minikube
 
 ```
-minikube start
+minikube start --container-runtime=containerd
 ```
 
 Abre otro terminal y ejecuta el dashboard:
@@ -160,13 +160,33 @@ Ahora vamos a crear los deployments para nuestras imágenes.
 
 Debes modificar los archivos que terminan en `-deployment.yaml`
 
-Busca la linea que contiene el texto: `image: TU_USUARIO/aplicacion:v1`` en  y reemplaza TU_USUARIO por el nombre de tu usuario en docker-hub.
+Busca la linea que contiene el texto: `image: USUARIO/aplicacion:version`` en  y reemplaza `USUARIO` por el nombre de tu usuario en docker-hub, junto con los valores adecuados para `aplicacion` y `version`.
 
+Luego de hacer los cambios levanta los servicios aplicando los manifiestos:
 
-kubectl apply -f deployment
+    kubectl apply -f deployment
 
-Para probar debemos habilitar INGRESS.
+Revisa en el dashboard los servicios y sus logs.
+
+Por ultimo nos falta habilitar INGRESS.
 
 
 ## Paso 6
+
+Ahora vamos levantar la configuración de ingress del siguiente modo:
+
+    kubectl apply -f networking
+
+Revisa el archivo `ingress-config.yaml`.
+
+Para poder ver estos servicios en nuestra máquina debes levantar el servicio `tunnel`:
+
+    minikube tunnel
+
+Ahora puedes navegar a http://localhost/ y probar la aplicación.
+
+Si tienes problema, probablemente debes habiltar el addon ingress, esto se realiza del siguiente modo:
+
+    minikube addons enable ingress
+
 
