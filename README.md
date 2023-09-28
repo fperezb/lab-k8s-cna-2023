@@ -188,5 +188,6 @@ Ahora puedes navegar a http://localhost/ y probar la aplicación.
 Si tienes problema, probablemente debes habiltar el addon ingress, esto se realiza del siguiente modo:
 
     minikube addons enable ingress
+  
 
 
