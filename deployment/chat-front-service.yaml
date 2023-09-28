@@ -6,11 +6,12 @@ metadata:
   labels:
     app: chat-front
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: chat-front
   ports:
-    - port: 8080
-      targetPort: 80
-      protocol: TCP
-      nodePort: 32000
+    - protocol: TCP
+      name: chat-front
+      port: 80
+      targetPort: http-chat-svc
+      nodePort: 30080

@@ -30,9 +30,10 @@ spec:
                   name: postgres
                   key: password
             - name: CONNECTION_URL
-              value: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/postgres"
+              value: "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/postgres"
             - name: JWT_SECRET
               value: "cambiame"
           ports:
             - containerPort: 3000
+              name: http-users-api
       restartPolicy: Always

@@ -6,11 +6,12 @@ metadata:
   labels:
     app: users-svc
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: users-svc
   ports:
-    - port: 3000
-      targetPort: 3000
-      protocol: TCP
-      nodePort: 31000
+    - protocol: TCP
+      name: users-api
+      port: 3000
+      targetPort: http-users-api
+      nodePort: 32000
