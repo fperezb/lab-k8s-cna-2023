@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: users-svc
-          image: lnds/labcna-users-svc:main
+          image: USUARIO/labcna-users-svc:main
           args:
             - "node"
             - "app.js"
@@ -32,7 +32,7 @@ spec:
             - name: CONNECTION_URL
               value: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/postgres"
             - name: JWT_SECRET
-              value: "changeme"
+              value: "cambiame"
           ports:
             - containerPort: 3000
       restartPolicy: Always
