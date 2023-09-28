@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: users-svc
-          image: USUARIO/labcna-users-svc:version
+          image: fperezb/users-svc:main
           args:
             - "node"
             - "app.js"
